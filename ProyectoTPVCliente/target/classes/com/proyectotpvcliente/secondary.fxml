@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.proyectotpvcliente.SecondaryController">
+   <children>
+      <Pane layoutX="6.0" layoutY="333.0" prefHeight="192.0" prefWidth="98.0" />
+      <ScrollPane fx:id="scrollHorizontalComida" hbarPolicy="ALWAYS" layoutX="106.0" layoutY="333.0" prefHeight="200.0" prefWidth="358.0" vbarPolicy="NEVER">
+         <content>
+            <GridPane hgap="5.0" prefHeight="112.0" prefWidth="356.0" vgap="5.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="173.20001220703125" minWidth="10.0" prefWidth="111.19994735717773" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="206.39998779296877" minWidth="10.0" prefWidth="126.40005264282225" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="289.20001220703125" minWidth="10.0" prefWidth="113.60000000000002" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="31.200018310546874" minHeight="10.0" prefHeight="31.200018310546874" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="39.19998779296874" minHeight="10.0" prefHeight="29.599981689453116" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
+      <Button fx:id="exitButton" layoutX="724.0" layoutY="498.0" mnemonicParsing="false" onAction="#Atrás" prefHeight="26.0" prefWidth="53.0" text="Salir" />
+      <Pane layoutX="464.0" layoutY="8.0" prefHeight="266.0" prefWidth="322.0">
+         <children>
+            <GridPane fx:id="calculadora" prefHeight="211.0" prefWidth="322.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="102.4000244140625" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="102.4000244140625" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="102.4000244140625" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="botón6" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="botón8" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="8" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="botón9" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="9" GridPane.columnIndex="2">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="botónBorrar" mnemonicParsing="false" onAction="#borrarCaracter" prefHeight="46.0" prefWidth="58.0" text="◀" GridPane.columnIndex="3">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="botónReiniciar" mnemonicParsing="false" onAction="#borrarCaracter" prefHeight="46.0" prefWidth="58.0" text="C" GridPane.columnIndex="4">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="botón1" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="botón5" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="botón4" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="4" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="botón2" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="botón7" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="7">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="botónDiv" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="/" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="botónMul" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="x" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="botón3" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="botónMen" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="-" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="botónMas" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="+" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="botón0" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="0" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="botón00" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="00" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="botónComa" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="." GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="botónPorc" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="\%" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="botónIgu" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="=" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </GridPane>
+            <TextArea fx:id="panelOperaciones" editable="false" layoutY="222.0" prefHeight="44.0" prefWidth="315.0" />
+         </children>
+      </Pane>
+      <TableView layoutX="4.0" layoutY="8.0" prefHeight="266.0" prefWidth="455.0">
+        <columns>
+          <TableColumn fx:id="udsTabla" prefWidth="75.0" text="Uds." />
+          <TableColumn fx:id="nombreTabla" prefWidth="316.79998779296875" text="Nombre" />
+            <TableColumn fx:id="totalTabla" minWidth="0.0" prefWidth="63.20001220703125" text="Total" />
+        </columns>
+      </TableView>
+      <Text fx:id="mesaId" layoutX="12.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BARRA">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
