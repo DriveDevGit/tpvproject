@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Cliente.CrearPerfilController">
+   <children>
+      <ImageView fitHeight="547.0" fitWidth="792.0" pickOnBounds="true">
+         <image>
+            <Image url="@../images/backgroundCrearPerfil.jpg" />
+         </image>
+      </ImageView>
+      <Pane layoutX="8.0" layoutY="8.0" prefHeight="526.0" prefWidth="776.0">
+         <children>
+            <Text layoutX="495.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DNI" wrappingWidth="46.183990478515625">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Text>
+            <Text layoutX="315.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" wrappingWidth="86.18402099609375">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Text>
+            <Text layoutX="627.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dirección" wrappingWidth="102.98397827148438">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Text>
+            <Text layoutX="310.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teléfono" wrappingWidth="96.58401489257812">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Text>
+            <TextField fx:id="inputNombre" layoutX="300.0" layoutY="153.0" prefHeight="15.0" prefWidth="117.0" />
+            <TextField fx:id="inputTlf" layoutX="294.0" layoutY="251.0" prefHeight="25.0" prefWidth="128.0" />
+            <TextField fx:id="inputDni" layoutX="460.0" layoutY="153.0" prefHeight="25.0" prefWidth="117.0" />
+            <TextField fx:id="inputDir" layoutX="620.0" layoutY="153.0" prefHeight="25.0" prefWidth="117.0" />
+            <Text layoutX="479.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario" wrappingWidth="78.18399047851562">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Text>
+            <Text layoutX="620.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña" wrappingWidth="116.58401489257812">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Text>
+            <TextField fx:id="inputUsuario" layoutX="460.0" layoutY="251.0" prefHeight="25.0" prefWidth="117.0" />
+            <TextField fx:id="inputContrasena" layoutX="620.0" layoutY="251.0" prefHeight="25.0" prefWidth="117.0" />
+            <Text layoutX="454.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Perfiles" wrappingWidth="127.78399658203125">
+               <font>
+                  <Font size="38.0" />
+               </font>
+            </Text>
+            <TableView layoutX="239.0" layoutY="302.0" prefHeight="219.0" prefWidth="517.0">
+              <columns>
+                <TableColumn fx:id="tabDNI" prefWidth="119.20001220703125" text="DNI" />
+                <TableColumn fx:id="tabUsuario" prefWidth="115.20001220703125" text="Usuario" />
+                  <TableColumn fx:id="tabDireccion" prefWidth="284.0" text="Dirección" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

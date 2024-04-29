@@ -1,3 +1,6 @@
-com\proyectotpvcliente\SecondaryController.class
-com\proyectotpvcliente\PrimaryController.class
-com\proyectotpvcliente\TPV.class
+Cliente\SecondaryController.class
+ViewModel\Perfil.class
+Cliente\PrimaryController.class
+Cliente\CrearPerfilController.class
+Cliente\SocketManager.class
+Cliente\TPV.class

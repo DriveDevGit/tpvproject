@@ -1,11 +1,13 @@
 package DAO;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 
-import com.proyectotpvservidor.Model.Perfil;
+import Model.Perfil;
 
 public class PerfilDao {
 
@@ -34,30 +36,39 @@ public class PerfilDao {
 	    }
 	}
 	
-	public String agregarUsuario(String nombre, String usuario, String contrasena, int rol) {
-	    EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoTPVServidor");
-	    EntityManager em = emf.createEntityManager();
-	    try {
-	        em.getTransaction().begin();
-	        
-	        // Crear un nuevo objeto Perfil
-	        Perfil perfil = new Perfil();
-	        perfil.setNombre(nombre);
-	        perfil.setUsername(usuario);
-	        perfil.setPassword(contrasena);
-	        perfil.setRol(rol);
-	        
-	        // Persistir el objeto Perfil en la base de datos
-	        em.persist(perfil);
-	        
-	        em.getTransaction().commit();
-	        em.close();
-	        emf.close();
-	        
-	        return "USUARIO CREADO";
-	    }
-	    catch(Exception e) {
-	        return "ERROR DE CREACIÓN";
-	    }
-	}
+	public Perfil obtenerPerfil(String username) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoTPVServidor");
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            Perfil perfil = em.createQuery("SELECT p from Perfil p WHERE p.username =:username", Perfil.class)
+            .setParameter("username", username).getSingleResult();
+            em.getTransaction().commit();
+
+            return perfil;
+        } catch(NoResultException e) {
+            return null;
+        } finally {
+            em.close();
+            emf.close();
+        }
+    }
+	
+	public List<Perfil> obtenerTodosLosPerfiles() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoTPVServidor");
+        EntityManager em = emf.createEntityManager();
+        List<Perfil> perfiles = null;
+        try {
+            em.getTransaction().begin();
+            perfiles = em.createQuery("SELECT p from Perfil p", Perfil.class).getResultList();
+            em.getTransaction().commit();
+        } catch(Exception e) {
+            e.printStackTrace();
+        } finally {
+            em.close();
+            emf.close();
+        }
+        return perfiles;
+    }
+	
 }
