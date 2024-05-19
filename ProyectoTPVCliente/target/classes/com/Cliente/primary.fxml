@@ -5,11 +5,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="600.0" style="-fx-background-image: ..\..\..\..\images\backgroundlogin.jpg;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Cliente.PrimaryController">
@@ -19,19 +21,38 @@
             <Image url="@../images/backgroundlogin.jpg" />
          </image>
       </ImageView>
-      <VBox alignment="CENTER" prefHeight="336.0" prefWidth="301.0" spacing="20.0">
+      <VBox alignment="CENTER" layoutX="13.0" layoutY="42.0" prefHeight="222.0" prefWidth="286.0" spacing="20.0" style="-fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;">
          <children>
-            <Label text="Iniciar Sesión" />
-            <TextField fx:id="usuarioTextfield" promptText="Usuario" />
-            <PasswordField fx:id="passwordTextfield" onAction="#login" promptText="Contraseña" />
-            <Button fx:id="loginButton" onAction="#login" text="Entrar" />
+            <Label text="Iniciar Sesión">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="usuarioTextfield" promptText="Usuario" stylesheets="@../../../../../dash.css">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="passwordTextfield" onAction="#login" promptText="Contraseña" stylesheets="@../../../../../dash.css">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </PasswordField>
+            <Button fx:id="loginButton" onAction="#login" style="-fx-background-color: linear-gradient(to bottom right, #7ed3fc, #0ea6e9);" stylesheets="@dash.css" text="Entrar">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
             <Text fx:id="wrongLoginText" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario y/o contraseña incorrectas" visible="false" />
          </children>
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </padding>
+         <effect>
+            <DropShadow />
+         </effect>
       </VBox>
-      <Pane fx:id="paneLogin" layoutX="50.0" layoutY="41.0" prefHeight="254.0" prefWidth="502.0" style="-fx-background-color: #0b97b6" visible="false">
+      <Pane fx:id="paneLogin" layoutX="50.0" layoutY="41.0" prefHeight="254.0" prefWidth="502.0" style="-fx-background-color: linear-gradient(to bottom right, #7ed3fc, #0ea6e9); -fx-border-radius: 10; -fx-background-radius: 10;" stylesheets="@../../../../../dash.css" visible="false">
          <children>
             <ImageView fx:id="iconStaff" fitHeight="150.0" fitWidth="200.0" layoutX="50.0" layoutY="52.0" onMouseClicked="#VisiblePanelAdmin" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -40,19 +61,13 @@
             </ImageView>
             <ImageView fx:id="iconFood" fitHeight="150.0" fitWidth="200.0" layoutX="285.0" layoutY="52.0" onMouseClicked="#CambiarATpv" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/food.png" />
+                  <Image url="@../images/store.png" />
                </image>
             </ImageView>
          </children>
-      </Pane>
-      <Pane fx:id="panelAdmin" layoutX="-8.0" layoutY="-9.0" prefHeight="350.0" prefWidth="616.0" style="-fx-background-color: #0b97b6" visible="false">
-         <children>
-            <ImageView fx:id="CrearPerfilBoton" fitHeight="150.0" fitWidth="200.0" layoutX="31.0" layoutY="25.0" onMouseClicked="#CambiarACrearPerfil" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/addprofile.png" />
-               </image>
-            </ImageView>
-         </children>
+         <effect>
+            <DropShadow />
+         </effect>
       </Pane>
    </children>
 </AnchorPane>

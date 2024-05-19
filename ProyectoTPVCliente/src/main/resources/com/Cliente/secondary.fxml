@@ -25,7 +25,7 @@
       <Pane layoutX="11.0" layoutY="8.0" prefHeight="548.0" prefWidth="806.0" style="-fx-background-color: white;">
          <children>
             <Pane layoutX="12.0" layoutY="336.0" prefHeight="192.0" prefWidth="98.0" style="-fx-background-color: white;" />
-            <TableView layoutX="14.0" layoutY="14.0" prefHeight="266.0" prefWidth="455.0">
+            <TableView layoutX="14.0" layoutY="14.0" prefHeight="266.0" prefWidth="455.0" stylesheets="@dash.css">
               <columns>
                 <TableColumn fx:id="udsTabla" prefWidth="75.0" text="Uds." />
                 <TableColumn fx:id="nombreTabla" prefWidth="316.79998779296875" text="Nombre" />
@@ -37,7 +37,6 @@
                   <Font name="System Bold" size="28.0" />
                </font>
             </Text>
-            <Button fx:id="exitButton" layoutX="736.0" layoutY="508.0" mnemonicParsing="false" onAction="#Atrás" prefHeight="26.0" prefWidth="53.0" text="Salir" />
             <ScrollPane fx:id="scrollHorizontalComida" hbarPolicy="ALWAYS" layoutX="112.0" layoutY="332.0" prefHeight="200.0" prefWidth="358.0" vbarPolicy="NEVER">
                <content>
                   <GridPane hgap="5.0" prefHeight="112.0" prefWidth="356.0" vgap="5.0">
@@ -55,7 +54,7 @@
                   </GridPane>
                </content>
             </ScrollPane>
-            <Pane layoutX="470.0" layoutY="14.0" prefHeight="266.0" prefWidth="322.0">
+            <Pane layoutX="484.0" layoutY="14.0" prefHeight="266.0" prefWidth="322.0">
                <children>
                   <GridPane fx:id="calculadora" prefHeight="211.0" prefWidth="322.0">
                     <columnConstraints>
@@ -72,102 +71,102 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="botón6" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <Button fx:id="botón6" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" stylesheets="@dash.css" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botón8" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="8" GridPane.columnIndex="1">
+                        <Button fx:id="botón8" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" stylesheets="@dash.css" text="8" GridPane.columnIndex="1">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botón9" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="9" GridPane.columnIndex="2">
+                        <Button fx:id="botón9" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" stylesheets="@dash.css" text="9" GridPane.columnIndex="2">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botónBorrar" mnemonicParsing="false" onAction="#otrosBotones" prefHeight="46.0" prefWidth="58.0" text="◀" GridPane.columnIndex="3">
+                        <Button fx:id="botónBorrar" mnemonicParsing="false" onAction="#otrosBotones" prefHeight="46.0" prefWidth="58.0" stylesheets="@dash.css" text="◀" GridPane.columnIndex="3">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botónReiniciar" mnemonicParsing="false" onAction="#otrosBotones" prefHeight="46.0" prefWidth="58.0" text="C" GridPane.columnIndex="4">
+                        <Button fx:id="botónReiniciar" mnemonicParsing="false" onAction="#otrosBotones" prefHeight="46.0" prefWidth="58.0" stylesheets="@dash.css" text="C" GridPane.columnIndex="4">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botón1" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="1" GridPane.rowIndex="2">
+                        <Button fx:id="botón1" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" stylesheets="@dash.css" text="1" GridPane.rowIndex="2">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botón5" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Button fx:id="botón5" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" stylesheets="@dash.css" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botón4" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="4" GridPane.rowIndex="1">
+                        <Button fx:id="botón4" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" stylesheets="@dash.css" text="4" GridPane.rowIndex="1">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botón2" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Button fx:id="botón2" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" stylesheets="@dash.css" text="2" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botón7" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="7">
+                        <Button fx:id="botón7" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" stylesheets="@dash.css" text="7">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botónDiv" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="/" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                        <Button fx:id="botónDiv" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" stylesheets="@dash.css" text="/" GridPane.columnIndex="3" GridPane.rowIndex="1">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botónMul" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="x" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                        <Button fx:id="botónMul" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" stylesheets="@dash.css" text="x" GridPane.columnIndex="4" GridPane.rowIndex="1">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botón3" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                        <Button fx:id="botón3" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" stylesheets="@dash.css" text="3" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botónMen" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="-" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                        <Button fx:id="botónMen" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" stylesheets="@dash.css" text="-" GridPane.columnIndex="3" GridPane.rowIndex="2">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botónMas" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="+" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                        <Button fx:id="botónMas" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" stylesheets="@dash.css" text="+" GridPane.columnIndex="4" GridPane.rowIndex="2">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botón0" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="0" GridPane.rowIndex="3">
+                        <Button fx:id="botón0" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" stylesheets="@dash.css" text="0" GridPane.rowIndex="3">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botón00" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="00" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <Button fx:id="botón00" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" stylesheets="@dash.css" text="00" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botónComa" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="." GridPane.columnIndex="2" GridPane.rowIndex="3">
+                        <Button fx:id="botónComa" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" stylesheets="@dash.css" text="." GridPane.columnIndex="2" GridPane.rowIndex="3">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botónPorc" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="\%" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                        <Button fx:id="botónPorc" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" stylesheets="@dash.css" text="\%" GridPane.columnIndex="3" GridPane.rowIndex="3">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="botónIgu" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" text="=" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                        <Button fx:id="botónIgu" mnemonicParsing="false" onAction="#botónCalc" prefHeight="46.0" prefWidth="58.0" stylesheets="@dash.css" text="=" GridPane.columnIndex="4" GridPane.rowIndex="3">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -175,6 +174,50 @@
                      </children>
                   </GridPane>
                   <TextArea fx:id="panelOperaciones" editable="false" layoutY="222.0" prefHeight="44.0" prefWidth="315.0" />
+               </children>
+            </Pane>
+            <Pane layoutX="484.0" layoutY="332.0" prefHeight="200.0" prefWidth="315.0">
+               <children>
+                  <Button fx:id="exitButton" layoutX="248.0" layoutY="155.0" mnemonicParsing="false" onAction="#Atrás" prefHeight="26.0" prefWidth="53.0" style="-fx-background-color: linear-gradient(to bottom right, #ee4444, #e31d46);;" stylesheets="@dash.css" text="Salir">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="exitButton1" layoutX="228.0" layoutY="9.0" mnemonicParsing="false" onAction="#Atrás" prefHeight="36.0" prefWidth="73.0" style="-fx-background-color: linear-gradient(to bottom right, #23c55e, #23c55e);" stylesheets="@dash.css" text="Total">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="exitButton21" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#Atrás" prefHeight="37.0" prefWidth="113.0" stylesheets="@dash.css" text="Trasp. Mesa">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="exitButton211" layoutX="14.0" layoutY="51.0" mnemonicParsing="false" onAction="#Atrás" prefHeight="36.0" prefWidth="149.0" stylesheets="@dash.css" text="Separar Comanda">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="exitButton2111" layoutX="14.0" layoutY="93.0" mnemonicParsing="false" onAction="#Atrás" prefHeight="37.0" prefWidth="113.0" stylesheets="@dash.css" text="Borrar Línea">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="exitButton21111" layoutX="14.0" layoutY="137.0" mnemonicParsing="false" onAction="#Atrás" prefHeight="36.0" prefWidth="149.0" stylesheets="@dash.css" text="Borrar Comanda">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="exitButton11" layoutX="188.0" layoutY="93.0" mnemonicParsing="false" onAction="#Atrás" prefHeight="36.0" prefWidth="113.0" stylesheets="@dash.css" text="Marcar Listo">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="exitButton2" layoutX="228.0" layoutY="51.0" mnemonicParsing="false" onAction="#Atrás" prefHeight="36.0" prefWidth="73.0" stylesheets="@dash.css" text="Mesa">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
                </children>
             </Pane>
          </children>

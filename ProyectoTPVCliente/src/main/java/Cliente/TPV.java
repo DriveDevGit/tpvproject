@@ -5,14 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import Cliente.SocketManager;
 
 import java.io.IOException;
 
-import atlantafx.base.theme.CupertinoLight;
-import atlantafx.base.theme.Dracula;
-import atlantafx.base.theme.NordDark;
-import atlantafx.base.theme.NordLight;
-import atlantafx.base.theme.PrimerLight;
+
 
 /**
  * JavaFX App
@@ -21,18 +18,29 @@ public class TPV extends Application {
 
     private static Scene scene;
     private static SocketManager socketManager;
+    private static String rolManager;
 
     @Override
     public void start(Stage stage) throws IOException {
     	socketManager = new SocketManager();
-    	Application.setUserAgentStylesheet(new NordLight().getUserAgentStylesheet());
+    	rolManager = "";
+    	//Application.setUserAgentStylesheet(new NordLight().getUserAgentStylesheet());
         scene = new Scene(loadFXML("primary"));
         stage.setScene(scene);
         stage.show();
+        scene.getStylesheets().add(getClass().getResource("/com/Cliente/dash.css").toExternalForm());
     }
     
     public static SocketManager getSocketManager() {
         return socketManager;
+    }
+    
+    public static String getRolManager() {
+    	return rolManager;
+    }
+    
+    public static void setRolManager(String rol) {
+    	rolManager = rol;
     }
 
     static void setRoot(String fxml) throws IOException {
@@ -44,7 +52,7 @@ public class TPV extends Application {
         return fxmlLoader.load();
     }
     
-    static void setRoot(String fxml, double width, double height, SocketManager socketManager) throws IOException {
+    static void setRoot(String fxml, double width, double height) throws IOException {
         scene.setRoot(loadFXML(fxml));
         scene.getWindow().setWidth(width);
         scene.getWindow().setHeight(height);

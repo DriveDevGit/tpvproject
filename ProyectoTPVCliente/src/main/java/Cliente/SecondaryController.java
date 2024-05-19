@@ -13,10 +13,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import atlantafx.base.theme.Styles;
 
 public class SecondaryController {
-
+	
+	private SocketManager socketManager = TPV.getSocketManager();
+	
     @FXML
     private Button exitButton;
     
@@ -35,7 +36,6 @@ public class SecondaryController {
         //Inicialice aquí cualquier objeto que sea necesario
     	panelOperaciones.textProperty().addListener((observable, oldValue, newValue) -> {
             paneOperacionesText = newValue;
-            exitButton.getStyleClass().add(Styles.DANGER);
             exitButton.setContentDisplay(ContentDisplay.RIGHT);
             exitButton.setMnemonicParsing(true);
         });
@@ -43,7 +43,8 @@ public class SecondaryController {
     
     @FXML
     private void Atrás() throws IOException {
-    	TPV.setRoot("primary");
+    	socketManager.enviar("CLIENTE:SALIR");
+		TPV.setRoot("primary", 600, 350);
     }
     
     @FXML
@@ -105,9 +106,11 @@ public class SecondaryController {
     		panelOperaciones.clear();
     		break;
     	case "Salir:":
-    		TPV.setRoot("primary");
+    		socketManager.enviar("CLIENTE:SALIR");
+    		TPV.setRoot("primary", 600, 350);
     		break;
     	}
         
     }
+    
 }

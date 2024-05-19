@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -19,54 +22,103 @@
       </ImageView>
       <Pane layoutX="8.0" layoutY="8.0" prefHeight="526.0" prefWidth="776.0">
          <children>
-            <Text layoutX="495.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DNI" wrappingWidth="46.183990478515625">
+            <Text layoutX="479.0" layoutY="129.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" text="DNI" wrappingWidth="46.183990478515625">
                <font>
                   <Font size="23.0" />
                </font>
             </Text>
-            <Text layoutX="315.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" wrappingWidth="86.18402099609375">
+            <Text layoutX="310.0" layoutY="129.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" text="Nombre" wrappingWidth="86.18402099609375">
                <font>
                   <Font size="23.0" />
                </font>
             </Text>
-            <Text layoutX="627.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dirección" wrappingWidth="102.98397827148438">
+            <Text layoutX="627.0" layoutY="129.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" text="Dirección" wrappingWidth="102.98397827148438">
                <font>
                   <Font size="23.0" />
                </font>
             </Text>
-            <Text layoutX="310.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teléfono" wrappingWidth="96.58401489257812">
+            <Text layoutX="310.0" layoutY="230.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" text="Teléfono" wrappingWidth="96.58401489257812">
                <font>
                   <Font size="23.0" />
                </font>
             </Text>
-            <TextField fx:id="inputNombre" layoutX="300.0" layoutY="153.0" prefHeight="15.0" prefWidth="117.0" />
-            <TextField fx:id="inputTlf" layoutX="294.0" layoutY="251.0" prefHeight="25.0" prefWidth="128.0" />
-            <TextField fx:id="inputDni" layoutX="460.0" layoutY="153.0" prefHeight="25.0" prefWidth="117.0" />
-            <TextField fx:id="inputDir" layoutX="620.0" layoutY="153.0" prefHeight="25.0" prefWidth="117.0" />
-            <Text layoutX="479.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario" wrappingWidth="78.18399047851562">
+            <TextField fx:id="inputNombre" layoutX="294.0" layoutY="153.0" prefHeight="25.0" prefWidth="128.0" promptText="Nombre" stylesheets="@dash.css" />
+            <TextField fx:id="inputTlf" layoutX="294.0" layoutY="251.0" prefHeight="25.0" prefWidth="128.0" promptText="Teléfono" stylesheets="@dash.css" />
+            <TextField fx:id="inputDni" layoutX="460.0" layoutY="153.0" prefHeight="25.0" prefWidth="117.0" promptText="DNI" stylesheets="@dash.css" />
+            <TextField fx:id="inputDir" layoutX="620.0" layoutY="153.0" prefHeight="25.0" prefWidth="117.0" promptText="Dirección" stylesheets="@dash.css" />
+            <Text layoutX="479.0" layoutY="235.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" text="Usuario" wrappingWidth="78.18399047851562">
                <font>
                   <Font size="23.0" />
                </font>
             </Text>
-            <Text layoutX="620.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña" wrappingWidth="116.58401489257812">
+            <Text layoutX="627.0" layoutY="235.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" text="Rol" wrappingWidth="36.584014892578125">
                <font>
                   <Font size="23.0" />
                </font>
             </Text>
-            <TextField fx:id="inputUsuario" layoutX="460.0" layoutY="251.0" prefHeight="25.0" prefWidth="117.0" />
-            <TextField fx:id="inputContrasena" layoutX="620.0" layoutY="251.0" prefHeight="25.0" prefWidth="117.0" />
-            <Text layoutX="454.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Perfiles" wrappingWidth="127.78399658203125">
+            <TextField fx:id="inputUsuario" layoutX="460.0" layoutY="251.0" prefHeight="25.0" prefWidth="117.0" promptText="Usuario" stylesheets="@dash.css" />
+            <TextField fx:id="inputRol" layoutX="620.0" layoutY="251.0" prefHeight="25.0" prefWidth="117.0" promptText="Rol" stylesheets="@dash.css" />
+            <Text fill="#48cae4" layoutX="454.0" layoutY="63.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" text="Perfiles" wrappingWidth="127.78399658203125">
                <font>
                   <Font size="38.0" />
                </font>
             </Text>
-            <TableView layoutX="239.0" layoutY="302.0" prefHeight="219.0" prefWidth="517.0">
+            <TableView fx:id="tabPerfiles" layoutX="239.0" layoutY="302.0" prefHeight="219.0" prefWidth="517.0" stylesheets="@dash.css">
               <columns>
                 <TableColumn fx:id="tabDNI" prefWidth="119.20001220703125" text="DNI" />
                 <TableColumn fx:id="tabUsuario" prefWidth="115.20001220703125" text="Usuario" />
                   <TableColumn fx:id="tabDireccion" prefWidth="284.0" text="Dirección" />
               </columns>
             </TableView>
+            <ImageView fx:id="atrasBoton" fitHeight="85.0" fitWidth="66.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#CambiarAAdministracion" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/backArrow.png" />
+               </image>
+               <effect>
+                  <DropShadow height="63.11" radius="28.13" spread="0.86" width="51.41">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </ImageView>
+            <Button fx:id="botonNuevoPerfil" layoutX="80.0" layoutY="482.0" mnemonicParsing="false" onAction="#CrearNuevoPerfil" prefHeight="39.0" prefWidth="146.0" style="-fx-border-color: white; -fx-background-radius: 30; -fx-border-radius: 30;" stylesheets="@dash.css" text="Crear perfil nuevo">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="mostrarTablaBoton" layoutX="80.0" layoutY="429.0" mnemonicParsing="false" onAction="#MostrarTabla" prefHeight="39.0" prefWidth="146.0" style="-fx-border-color: white; -fx-border-radius: 30; -fx-background-radius: 30;" stylesheets="@dash.css" text="Mostrar tabla">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <TextField fx:id="inputPwd" layoutX="294.0" layoutY="344.0" prefHeight="25.0" prefWidth="202.0" promptText="Contraseña" stylesheets="@dash.css" visible="false" />
+            <Text fx:id="labelContrasena" layoutX="310.0" layoutY="327.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" text="Contraseña" visible="false" wrappingWidth="117.0">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Text>
+            <TextField fx:id="inputRepetir" layoutX="535.0" layoutY="344.0" prefHeight="25.0" prefWidth="202.0" promptText="Contraseña" stylesheets="@dash.css" visible="false" />
+            <Text fx:id="labelRepetir" layoutX="535.0" layoutY="327.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" text="Repetir contraseña" visible="false" wrappingWidth="201.79998779296875">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Text>
+            <Button fx:id="crearBoton" layoutX="591.0" layoutY="392.0" mnemonicParsing="false" onAction="#CrearPerfil" prefHeight="39.0" prefWidth="146.0" style="-fx-background-color: linear-gradient(to bottom right, #23c55e, #23c55e); -fx-border-color: white; -fx-background-radius: 30; -fx-border-radius: 30;" stylesheets="@dash.css" text="Crear" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Text fx:id="textWrong" fill="RED" layoutX="396.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faltan campos por rellenar" visible="false">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <Text fx:id="textWrongPwd" fill="RED" layoutX="410.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="La contraseña no coincide" visible="false">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
          </children>
       </Pane>
    </children>

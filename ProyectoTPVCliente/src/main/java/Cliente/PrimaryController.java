@@ -34,7 +34,9 @@ public class PrimaryController{
 	@FXML
 	private	Pane panelAdmin;
 	
-	private SocketManager socketManager;
+	private SocketManager socketManager = TPV.getSocketManager();
+	
+	private String rolManager = TPV.getRolManager();
 	
     @FXML
     private void login(){
@@ -46,15 +48,24 @@ public class PrimaryController{
     	BufferedReader in = null;	
     	
     	try {
-    		socketManager = TPV.getSocketManager();
             socketManager.enviar("CLIENTE:LOGIN:"+usuario+";"+contraseña); // Envía un mensaje al servidor 1#
 
             // Recibir la respuesta del servidor
             String respuesta = socketManager.recibir();// 1# Recibe el mensaje del servidor
             String mensaje = respuesta.split(":")[1];
             
+            
             if(mensaje.equals("LOGIN CORRECTO")) {
-            	paneLogin.setVisible(true);
+            	String nuevoRol = respuesta.split(":")[2];
+                TPV.setRolManager(nuevoRol);
+                rolManager = nuevoRol;
+            	if(rolManager.equals("Administrador")) {
+            		paneLogin.setVisible(true);
+            	}
+            	else {
+            		CambiarATpv();
+            	}
+            	
             }
             else {
             	wrongLoginText.setVisible(true);
@@ -66,17 +77,15 @@ public class PrimaryController{
         }
     }
     
-    public void CambiarATpv(MouseEvent event) throws IOException {
-    	TPV.setRoot("secondary", 840, 600, socketManager);
+    @FXML
+    public void CambiarATpv() throws IOException {
+    	TPV.setRoot("secondary", 840, 600);
     }
     
     @FXML
-    public void VisiblePanelAdmin() {
-    	panelAdmin.setVisible(true);
+    public void VisiblePanelAdmin() throws IOException {
+    	TPV.setRoot("administracion", 600, 350);
     }
     
-    public void CambiarACrearPerfil(MouseEvent event) throws IOException {
-    	TPV.setRoot("crearperfil", 840, 600, socketManager);	
-    }
  
 }

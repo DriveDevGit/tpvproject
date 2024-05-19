@@ -6,7 +6,9 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.TreeMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -21,7 +23,7 @@ import DAO.PerfilDao;
 public class Servidor 
 {
 	public static boolean encendido = true;
-
+	public static List<Socket> coleccionClientes = new ArrayList<>(); //Cambiar de estático a no estático cuando el bucle esté fuera del main
 
 	public static void main( String[] args ) throws IOException
 	{
@@ -33,7 +35,7 @@ public class Servidor
 			clientSocket = null;
 
 			while(encendido) {
-
+				coleccionClientes.add(clientSocket);
 				System.out.println("Esperando al cliente...");
 				clientSocket = serverSocket.accept();
 				HiloMaster hilo = new HiloMaster(clientSocket);

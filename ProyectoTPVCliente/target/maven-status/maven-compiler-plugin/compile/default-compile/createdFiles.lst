@@ -1,6 +1,8 @@
+Cliente\AdministracionController.class
 Cliente\SecondaryController.class
 ViewModel\Perfil.class
 Cliente\PrimaryController.class
 Cliente\CrearPerfilController.class
 Cliente\SocketManager.class
+Cliente\CrearProductoController.class
 Cliente\TPV.class

@@ -12,6 +12,26 @@ import Model.Perfil;
 public class PerfilDao {
 
 	
+	public String InsertarPerfil(Perfil perfil) {
+	    EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoTPVServidor");
+	    EntityManager em = emf.createEntityManager();
+	    try {
+	        em.getTransaction().begin();
+	        
+	        // Insertar el Perfil en la base de datos
+	        em.persist(perfil);
+	        
+	        em.getTransaction().commit();
+	        em.close();
+	        emf.close();
+	        
+	        return "PERFIL INSERTADO CORRECTAMENTE";
+	    }
+	    catch(Exception e) {
+	        return "ERROR AL INSERTAR PERFIL";
+	    }
+	}
+	
 	public String UsuarioExiste(String user, String password) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoTPVServidor");
 	    EntityManager em = emf.createEntityManager();
@@ -24,7 +44,7 @@ public class PerfilDao {
 	        emf.close();
 
 	        if(password.equals(perfil.getPassword())) {
-	        	return "LOGIN CORRECTO";
+	        	return "LOGIN CORRECTO:"+perfil.getRol();
 	        }
 	        else {
 	        	return "LOGIN INCORRECTO";

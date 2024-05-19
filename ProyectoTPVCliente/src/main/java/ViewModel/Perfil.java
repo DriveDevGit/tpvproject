@@ -8,7 +8,7 @@ public class Perfil {
 		private String nombre;
 		private String username;
 		private String password;
-		private int rol;
+		private String rol;
 		private String telefono;
 		private String direccion;
 		private String dni;
@@ -16,6 +16,22 @@ public class Perfil {
 		public Perfil() {
 			
 		}
+		
+		
+
+		public Perfil(String nombre, String username, String password, String rol, String telefono, String direccion,
+				String dni) {
+			super();
+			this.nombre = nombre;
+			this.username = username;
+			this.password = password;
+			this.rol = rol;
+			this.telefono = telefono;
+			this.direccion = direccion;
+			this.dni = dni;
+		}
+
+
 
 		public int getId() {
 			return id;
@@ -72,9 +88,17 @@ public class Perfil {
 		public void setDni(String dni) {
 			this.dni = dni;
 		}
-
-		public int getRol() {
+		
+		public void setRol(String rol) {
+			this.rol = rol;
+		}
+		
+		public String getRol() {
 			return rol;
+		}
+		
+		public String getAll() {
+			return nombre+";"+username+";"+password+";"+rol+";"+telefono+";"+direccion+";"+dni;
 		}
 	
 		
