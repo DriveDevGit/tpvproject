@@ -64,6 +64,6 @@ public class Producto {
 		}
 
 		public String getAll() {
-			return id+";"+nombre+";"+descripcion+";"+categoria+";"+precio;
+			return nombre+";"+descripcion+";"+categoria+";"+precio;
 		}
 }

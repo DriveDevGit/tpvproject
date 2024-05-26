@@ -47,4 +47,23 @@ public class ProductoDao {
         }
         return productos;
     }
+	
+	public List<Producto> obtenerProductosPorCategoria(String categoria) {
+	    EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoTPVServidor");
+	    EntityManager em = emf.createEntityManager();
+	    List<Producto> productos = null;
+	    try {
+	        em.getTransaction().begin();
+	        productos = em.createQuery("SELECT p from Producto p WHERE p.categoria = :categoria", Producto.class)
+	                .setParameter("categoria", categoria)
+	                .getResultList();
+	        em.getTransaction().commit();
+	    } catch(Exception e) {
+	        e.printStackTrace();
+	    } finally {
+	        em.close();
+	        emf.close();
+	    }
+	    return productos;
+	}
 }

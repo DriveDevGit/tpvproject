@@ -21,8 +21,6 @@ public class Perfil {
 			
 		}
 		
-		
-
 		public Perfil(String nombre, String username, String password, String rol, String telefono, String direccion,
 				String dni) {
 			super();

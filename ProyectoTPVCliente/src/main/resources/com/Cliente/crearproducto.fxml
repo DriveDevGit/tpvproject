@@ -81,7 +81,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="crearBoton" layoutX="591.0" layoutY="392.0" mnemonicParsing="false" onAction="#CrearProducto" prefHeight="39.0" prefWidth="146.0" style="-fx-background-color: linear-gradient(to bottom right, #23c55e, #23c55e); -fx-border-color: white; -fx-background-radius: 30; -fx-border-radius: 30;" stylesheets="@dash.css" text="Crear" visible="false">
+            <Button fx:id="crearBoton" layoutX="600.0" layoutY="244.0" mnemonicParsing="false" onAction="#CrearProducto" prefHeight="39.0" prefWidth="146.0" style="-fx-background-color: linear-gradient(to bottom right, #23c55e, #23c55e); -fx-border-color: white; -fx-background-radius: 30; -fx-border-radius: 30;" stylesheets="@dash.css" text="Crear" visible="false">
                <font>
                   <Font size="14.0" />
                </font>
@@ -91,7 +91,7 @@
                   <Font size="19.0" />
                </font>
             </Text>
-            <TextArea fx:id="areaDescr" layoutX="290.0" layoutY="244.0" prefHeight="38.0" prefWidth="290.0" promptText="Descripción" stylesheets="@dash.css" />
+            <TextArea fx:id="areaDescr" disable="true" editable="false" layoutX="290.0" layoutY="244.0" prefHeight="38.0" prefWidth="290.0" promptText="Descripción" stylesheets="@dash.css" />
             <ChoiceBox fx:id="choiceCategoria" layoutX="443.0" layoutY="153.0" prefWidth="150.0" stylesheets="@dash.css" />
          </children>
       </Pane>

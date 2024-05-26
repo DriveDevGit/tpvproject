@@ -30,6 +30,9 @@ public class CrearProductoController {
 	
 	@FXML
 	private TableView<Producto> tabProductos;
+	
+	@FXML
+	private TableColumn<Producto, String> tabNombre;
 	 
 	@FXML
 	private TableColumn<Producto, String> tabCategoria;
@@ -38,7 +41,7 @@ public class CrearProductoController {
 	private TableColumn<Producto, String> tabDescripcion;
 	
 	@FXML
-	private TableColumn<Producto, String> tabPrecio;
+	private TableColumn<Producto, Double> tabPrecio;
 
 	@FXML
 	private TextField inputNombre;
@@ -50,53 +53,60 @@ public class CrearProductoController {
 	private ChoiceBox choiceCategoria;
 	
 	@FXML
+	private TextArea areaDescr;
+	
+	@FXML
 	private Text textWrong;
-
 	
 	@FXML
 	private Button crearBoton;
 	
-	//List<Perfil> perfiles = new ArrayList<>();
+	List<Producto> productos = new ArrayList<>();
 	
     @FXML
     public void initialize() {
-    	/*
+    	
+    	List<String> categorias = new ArrayList<>();
+        categorias.add("Desayunos");
+        categorias.add("Bebidas");
+        categorias.add("Licores");
+        choiceCategoria.getItems().addAll(categorias);
+        choiceCategoria.setValue("Elige categoría"); // Valor por defecto
     	try {
             
             
             MostrarTabla();
-            tabPerfiles.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> {
+            
+            //Por cada click en celda, rellena los inputs
+            tabProductos.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> {
                 if (newValue != null) {
-                    Perfil selectedPerfil = newValue;
+                    Producto selectedProducto = newValue;
                    
-                    inputNombre.setText(selectedPerfil.getNombre());
-                    inputUsuario.setText(selectedPerfil.getUsername()); 
-                    inputRol.setText(selectedPerfil.getRol());
-                    inputTlf.setText(selectedPerfil.getTelefono());
-                    inputDir.setText(selectedPerfil.getDireccion());
-                    inputDni.setText(selectedPerfil.getDni());
+                    inputNombre.setText(selectedProducto.getNombre());
+                    choiceCategoria.setValue(selectedProducto.getCategoria());
+                    inputPrecio.setText(String.valueOf(selectedProducto.getPrecio())); 
+                    areaDescr.setText(selectedProducto.getDescripcion());
                 }
             });
 
         } catch (Exception e) {
             e.printStackTrace();
-        }*/
+        }
     }
     
     public void MostrarTabla() throws IOException {
-    	/*tabPerfiles.setVisible(true);
-    	labelContrasena.setVisible(false);
-    	labelRepetir.setVisible(false);
-    	inputPwd.setVisible(false);
-    	inputRepetir.setVisible(false);
+    	tabProductos.setVisible(true);
     	crearBoton.setVisible(false);
+    	areaDescr.setDisable(true);
+    	areaDescr.setEditable(false);
     	
-    	if(tabPerfiles.getColumns().size()>0) {
-    		perfiles.clear();
-    		tabPerfiles.getItems().clear();
+    	//Limpiar tabla si hay celdas llenas
+    	if(tabProductos.getColumns().size()>0) {
+    		productos.clear();
+    		tabProductos.getItems().clear();
     	}
     	
-    	socketManager.enviar("CLIENTE:PERFIL"); // Envía un mensaje al servidor
+    	socketManager.enviar("CLIENTE:PRODUCTO"); // Envía un mensaje al servidor
 
         String respuesta = socketManager.recibir(); // Recibe el mensaje del servidor
         System.out.println(respuesta);
@@ -107,25 +117,25 @@ public class CrearProductoController {
         for (int i = 0; i < contador; i++) {
             respuesta = socketManager.recibir(); // Recibe cada perfil
             partes = respuesta.split(":");
-            Perfil perfil = new Perfil();
-            String[] datosPerfiles = partes[1].split(";");
+            Producto producto = new Producto();
+            String[] datosProducto = partes[1].split(";");
 
-            perfil.setNombre(datosPerfiles[1]);
-            perfil.setUsername(datosPerfiles[2]);
-            perfil.setPassword(datosPerfiles[3]);
-            perfil.setRol(datosPerfiles[4]);
-            perfil.setTelefono(datosPerfiles[5]);
-            perfil.setDireccion(datosPerfiles[6]);
-            perfil.setDni(datosPerfiles[7]);
+            producto.setNombre(datosProducto[1]);
+            producto.setDescripcion(datosProducto[2]);
+            producto.setCategoria(datosProducto[3]);
+            producto.setPrecio(Double.parseDouble(datosProducto[4]));
 
-            perfiles.add(perfil);
+            productos.add(producto);
 
-            System.out.println(perfil.getNombre() + ";" + perfil.getUsername() + ";" + perfil.getPassword() + ";" + perfil.getRol() + ";" + perfil.getTelefono() + ";" + perfil.getDireccion() + ";" + perfil.getDni());
+            System.out.println(producto.getNombre() + ";" + producto.getDescripcion() + ";" + producto.getCategoria() + ";" + producto.getPrecio());
         }
-    	tabDNI.setCellValueFactory(new PropertyValueFactory<Perfil, String>("Dni"));
-        tabUsuario.setCellValueFactory(new PropertyValueFactory<Perfil, String>("Username"));
-        tabDireccion.setCellValueFactory(new PropertyValueFactory<Perfil, String>("Direccion"));
-        tabPerfiles.getItems().addAll(perfiles);*/
+        
+        //Rellenar tabla
+    	tabNombre.setCellValueFactory(new PropertyValueFactory<Producto, String>("Nombre"));
+        tabCategoria.setCellValueFactory(new PropertyValueFactory<Producto, String>("Categoria"));
+        tabDescripcion.setCellValueFactory(new PropertyValueFactory<Producto, String>("Descripcion"));
+        tabPrecio.setCellValueFactory(new PropertyValueFactory<Producto, Double>("Precio"));
+        tabProductos.getItems().addAll(productos);
     }
     
     
@@ -138,33 +148,27 @@ public class CrearProductoController {
     
     @FXML
     public void CrearNuevoProducto() {
-    	/*tabPerfiles.setVisible(false);
-    	labelContrasena.setVisible(true);
-    	labelRepetir.setVisible(true);
-    	inputPwd.setVisible(true);
-    	inputRepetir.setVisible(true);
-    	crearBoton.setVisible(true);*/
+    	tabProductos.setVisible(false);
+    	areaDescr.setDisable(false);
+    	areaDescr.setEditable(true);
+    	crearBoton.setVisible(true);
     }
     
     @FXML
     public void CrearProducto() {
-    	/*if(inputNombre.getText().equals("") || inputDni.getText().equals("") || inputDir.getText().equals("") || inputUsuario.getText().equals("") || inputPwd.getText().equals("")
-    			|| inputRepetir.getText().equals("") || inputRol.getText().equals("") || inputTlf.getText().equals("")) {
+    	if(inputNombre.getText().equals("") || choiceCategoria.getValue().toString().equals("Elige categoría") || 
+    			inputPrecio.getText().equals("") || areaDescr.getText().equals("")) {
     		textWrong.setVisible(true);
-    		textWrongPwd.setVisible(false);
     	}
     	else {
-    		if(!inputPwd.getText().equals(inputRepetir.getText())) {
-    			textWrong.setVisible(false);
-        		textWrongPwd.setVisible(true);
-    		}
-    		else {
-    			Perfil nuevoPerfil = new Perfil(inputNombre.getText(), inputUsuario.getText(), inputPwd.getText(), 
-    					inputRol.getText(), inputTlf.getText(), inputDir.getText(), inputDni.getText());
+    		
+   			Producto nuevoProducto = new Producto(inputNombre.getText(), areaDescr.getText(), choiceCategoria.getValue().toString(), 
+   					Double.parseDouble(inputPrecio.getText()));
+   			System.out.println(nuevoProducto.getAll());
     			
-    			socketManager.enviar("CLIENTE:CREAR PERFIL:"+nuevoPerfil.getAll());
-    		}
-    	}*/
+    		socketManager.enviar("CLIENTE:CREAR PRODUCTO:"+nuevoProducto.getAll());
+
+    	}
 
     }
 }

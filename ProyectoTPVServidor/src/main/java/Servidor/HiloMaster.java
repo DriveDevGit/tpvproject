@@ -60,11 +60,14 @@ public class HiloMaster extends Thread {
 	                        	CrearPerfil(mensaje.split(":")[2]);
 	                        	break;
 	                        case "PRODUCTO":
-	                            PerfilInicio();
+	                            ProductoInicio();
 	                            break;
 	                        case "CREAR PRODUCTO":
-	                        	CrearPerfil(mensaje.split(":")[2]);
-	                        	break;	
+	                        	CrearProducto(mensaje.split(":")[2]);
+	                        	break;
+	                        case "TPV Categoria":
+	                        	RealizarCategoria(mensaje.split(":")[2]);
+	                        	break;
 	                        case "SALIR":
 	                        	estado = "INICIO";
 	                        	break;
@@ -99,6 +102,9 @@ public class HiloMaster extends Thread {
 		}
 	}
 	
+	//==============Perfil=================
+	//=====================================
+	
 	public void PerfilInicio() {
 		try {
 	        List<Perfil> perfiles = perfilDao.obtenerTodosLosPerfiles();
@@ -118,7 +124,10 @@ public class HiloMaster extends Thread {
 		perfilDao.InsertarPerfil(nuevoPerfil);
 	}
 	
-	public void PerfilProducto() {
+	//==============Producto=================
+	//=======================================
+	
+	public void ProductoInicio() {
 		try {
 	        List<Producto> productos = productoDao.obtenerTodosLosProductos();
 	        out.println("SERVIDOR:" + productos.size());
@@ -131,10 +140,26 @@ public class HiloMaster extends Thread {
 	}
 	
 	public void CrearProducto(String productoMensaje) {
+		System.out.println(productoMensaje);
 		Producto nuevoProducto = new Producto(productoMensaje.split(";")[0], productoMensaje.split(";")[1], 
 				productoMensaje.split(";")[2], Double.parseDouble(productoMensaje.split(";")[3]));
 		
 		productoDao.InsertarProducto(nuevoProducto);
+	}
+	
+	//==============TPV=================
+	//==================================
+	
+	public void RealizarCategoria(String categoria) {
+		try {
+	        List<Producto> productos = productoDao.obtenerProductosPorCategoria(categoria);
+	        out.println("SERVIDOR:" + productos.size());
+	        for (Producto producto : productos) {
+	            out.println("SERVIDOR:" + producto.getAll());
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
 	}
 	
 }

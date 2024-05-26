@@ -9,12 +9,9 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 public class SocketManager {
-	private static SocketManager instance;
     private Socket socket;
     private PrintWriter out;
     private BufferedReader in;
-    private ObjectOutputStream objOut;
-    private ObjectInputStream objIn;
     private static final int port = 9090;
     private static String host = "localhost";
 
