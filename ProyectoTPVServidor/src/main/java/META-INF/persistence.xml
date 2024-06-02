@@ -3,6 +3,9 @@
 	<persistence-unit name="ProyectoTPVServidor" transaction-type="RESOURCE_LOCAL">
 		<class>Model.Perfil</class>
 		<class>Model.Producto</class>
+		<class>Model.Pedido</class>
+		<class>Model.Mesa</class>
+		<class>Model.ProductoSeleccionado</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>

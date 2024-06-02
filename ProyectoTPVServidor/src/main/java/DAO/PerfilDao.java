@@ -56,7 +56,7 @@ public class PerfilDao {
 	    }
 	}
 	
-	public Perfil obtenerPerfil(String username) {
+	public Perfil ObtenerPerfil(String username) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoTPVServidor");
         EntityManager em = emf.createEntityManager();
         try {
@@ -74,7 +74,7 @@ public class PerfilDao {
         }
     }
 	
-	public List<Perfil> obtenerTodosLosPerfiles() {
+	public List<Perfil> ObtenerTodosLosPerfiles() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoTPVServidor");
         EntityManager em = emf.createEntityManager();
         List<Perfil> perfiles = null;
