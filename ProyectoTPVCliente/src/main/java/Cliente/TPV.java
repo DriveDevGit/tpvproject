@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import Cliente.SocketManager;
+import ViewModel.Perfil;
 
 import java.io.IOException;
 
@@ -18,12 +19,12 @@ public class TPV extends Application {
 
     private static Scene scene;
     private static SocketManager socketManager;
-    private static String rolManager;
+    private static Perfil perfilActual;
 
     @Override
     public void start(Stage stage) throws IOException {
     	socketManager = new SocketManager();
-    	rolManager = "";
+    	perfilActual = new Perfil();
     	//Application.setUserAgentStylesheet(new NordLight().getUserAgentStylesheet());
         scene = new Scene(loadFXML("primary"));
         stage.setScene(scene);
@@ -35,12 +36,14 @@ public class TPV extends Application {
         return socketManager;
     }
     
-    public static String getRolManager() {
-    	return rolManager;
+    public static Perfil getPerfilActual() {
+    	return perfilActual;
     }
     
-    public static void setRolManager(String rol) {
-    	rolManager = rol;
+    public static void setPerfilActual(String usuario, String contrasena, String rol) {
+    	perfilActual.setUsername(usuario);
+    	perfilActual.setPassword(contrasena);
+    	perfilActual.setRol(rol);
     }
 
     static void setRoot(String fxml) throws IOException {

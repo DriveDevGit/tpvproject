@@ -19,9 +19,14 @@
                   <Image url="@../images/store.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="productoBoton" fitHeight="150.0" fitWidth="200.0" layoutX="233.0" layoutY="14.0" onMouseClicked="#CambiarACrearProducto" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="productoBoton" fitHeight="150.0" fitWidth="200.0" layoutX="240.0" layoutY="14.0" onMouseClicked="#CambiarACrearProducto" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/product.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="mesaBoton" fitHeight="150.0" fitWidth="200.0" layoutX="430.0" layoutY="14.0" onMouseClicked="#CambiarACrearMesa" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/table.png" />
                </image>
             </ImageView>
          </children>

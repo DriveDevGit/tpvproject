@@ -31,5 +31,9 @@ public class AdministracionController{
     public void CambiarACrearProducto(MouseEvent event) throws IOException {
     	TPV.setRoot("crearproducto", 840, 600);	
     }
+    
+    public void CambiarACrearMesa(MouseEvent event) throws IOException {
+    	TPV.setRoot("crearmesa", 840, 600);	
+    }
  
 }

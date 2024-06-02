@@ -4,6 +4,8 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -171,17 +173,17 @@
             </Pane>
             <Pane layoutX="484.0" layoutY="332.0" prefHeight="200.0" prefWidth="315.0">
                <children>
-                  <Button fx:id="exitButton" layoutX="243.0" layoutY="149.0" mnemonicParsing="false" onAction="#Atrás" prefHeight="36.0" prefWidth="58.0" style="-fx-background-color: linear-gradient(to bottom right, #ee4444, #e31d46);;" stylesheets="@dash.css" text="Salir">
+                  <Button fx:id="exitButton" layoutX="243.0" layoutY="135.0" mnemonicParsing="false" onAction="#Atrás" prefHeight="36.0" prefWidth="58.0" style="-fx-background-color: linear-gradient(to bottom right, #ee4444, #e31d46);;" stylesheets="@dash.css" text="Salir">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="exitButton1" layoutX="188.0" layoutY="9.0" mnemonicParsing="false" onAction="#Atrás" prefHeight="36.0" prefWidth="113.0" style="-fx-background-color: linear-gradient(to bottom right, #23c55e, #23c55e);" stylesheets="@dash.css" text="Total">
+                  <Button fx:id="totalBoton" layoutX="188.0" layoutY="9.0" mnemonicParsing="false" onAction="#ModalTotal" prefHeight="36.0" prefWidth="113.0" style="-fx-background-color: linear-gradient(to bottom right, #23c55e, #23c55e);" stylesheets="@dash.css" text="Total">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="exitButton21" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#Atrás" prefHeight="37.0" prefWidth="149.0" stylesheets="@dash.css" text="Trasp. Mesa">
+                  <Button fx:id="cambiarMesaBoton" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#ModalMesa" prefHeight="37.0" prefWidth="149.0" stylesheets="@dash.css" text="Trasp. Mesa">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -196,12 +198,17 @@
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="exitButton11" layoutX="188.0" layoutY="93.0" mnemonicParsing="false" onAction="#Atrás" prefHeight="36.0" prefWidth="113.0" stylesheets="@dash.css" text="Marcar Listo">
+                  <Button fx:id="listoBoton" layoutX="188.0" layoutY="93.0" mnemonicParsing="false" onAction="#CambiarListoEntrega" prefHeight="36.0" prefWidth="113.0" stylesheets="@dash.css" text="Marcar Listo">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="exitButton2" layoutX="188.0" layoutY="51.0" mnemonicParsing="false" onAction="#Atrás" prefHeight="36.0" prefWidth="113.0" stylesheets="@dash.css" text="Mesa">
+                  <Button fx:id="mesaBoton1" layoutX="188.0" layoutY="51.0" mnemonicParsing="false" onAction="#ModalMesa" prefHeight="36.0" prefWidth="113.0" stylesheets="@dash.css" text="Mesa">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="cambiarUnidadBoton" layoutX="14.0" layoutY="135.0" mnemonicParsing="false" onAction="#CambiarUnidad" prefHeight="36.0" prefWidth="149.0" stylesheets="@dash.css" text="Cambiar unidad">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -231,6 +238,80 @@
                   </AnchorPane>
               </content>
             </ScrollPane>
+         </children>
+      </Pane>
+      <Pane fx:id="modalMesas" layoutX="142.0" layoutY="98.0" prefHeight="310.0" prefWidth="562.0" style="-fx-background-color: linear-gradient(to bottom right, #7ed3fc, #0ea6e9); -fx-border-radius: 10; -fx-background-radius: 10;" visible="false">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Button fx:id="mesaBoton2" layoutX="39.0" layoutY="109.0" mnemonicParsing="false" onAction="#SeleccionarMesa" style="-fx-background-color: linear-gradient(to bottom right, #23c55e, #23c55e);" stylesheets="@dash.css" text="Mesa">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Button>
+            <Button fx:id="barraBoton" layoutX="192.0" layoutY="109.0" mnemonicParsing="false" onAction="#SeleccionarMesa" style="-fx-background-color: linear-gradient(to bottom right, #f97216, #fb933c);" stylesheets="@dash.css" text="Barra">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Button>
+            <Button fx:id="guardarMesaBoton" layoutX="343.0" layoutY="109.0" mnemonicParsing="false" onAction="#GuardarMesa" style="-fx-background-color: linear-gradient(to bottom right, #fde047, #e9b308);" stylesheets="@dash.css" text="Guardar">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane fx:id="modalMesas2" layoutX="152.0" layoutY="108.0" prefHeight="310.0" prefWidth="562.0" style="-fx-background-color: linear-gradient(to bottom right, #7ed3fc, #0ea6e9); -fx-border-radius: 10; -fx-background-radius: 10;" visible="false">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Button fx:id="mesaBoton3" layoutX="39.0" layoutY="109.0" mnemonicParsing="false" onAction="#CambiarMesa" style="-fx-background-color: linear-gradient(to bottom right, #23c55e, #23c55e);" stylesheets="@dash.css" text="Mesa">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Button>
+            <Button fx:id="barraBoton2" layoutX="384.0" layoutY="109.0" mnemonicParsing="false" onAction="#CambiarMesa" style="-fx-background-color: linear-gradient(to bottom right, #f97216, #fb933c);" stylesheets="@dash.css" text="Barra">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane fx:id="modalTotal" layoutX="162.0" layoutY="118.0" prefHeight="310.0" prefWidth="562.0" style="-fx-background-color: linear-gradient(to bottom right, #7ed3fc, #0ea6e9); -fx-border-radius: 10; -fx-background-radius: 10;" visible="false">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Text fill="#48cae4" layoutX="430.0" layoutY="68.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" text="Total">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Text>
+            <Text fill="#48cae4" layoutX="213.0" layoutY="68.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" text="Cambio">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Text>
+            <Text fill="#48cae4" layoutX="14.0" layoutY="69.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" text="Importe">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Text>
+            <TextField fx:id="inputImporte" layoutX="10.0" layoutY="95.0" />
+            <TextField fx:id="inputCambio" editable="false" layoutX="207.0" layoutY="95.0" />
+            <TextField fx:id="inputTotal" editable="false" layoutX="399.0" layoutY="95.0" />
+            <Button fx:id="cancelarBoton" layoutX="430.0" layoutY="238.0" mnemonicParsing="false" onAction="#ModalTotal" prefHeight="43.0" prefWidth="104.0" style="-fx-background-color: linear-gradient(to bottom right, #ee4444, #e31d46);;" stylesheets="@dash.css" text="Cancelar">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="tarjetaBoton" layoutX="19.0" layoutY="238.0" mnemonicParsing="false" onAction="#ModalTotal" prefHeight="43.0" prefWidth="140.0" style="-fx-border-color: White; -fx-border-radius: 2;" stylesheets="@dash.css" text="Con Tarjeta">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </children>

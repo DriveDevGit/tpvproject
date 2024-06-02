@@ -1,11 +1,17 @@
 Cliente\AdministracionController.class
 ViewModel\ProductoSeleccionado.class
 Cliente\SecondaryController.class
+Cliente\CrearMesaController.class
+ViewModel\Mesa.class
 Cliente\TPV.class
 ViewModel\Perfil.class
+Cliente\CocinaController.class
 Cliente\SecondaryController$1.class
 Cliente\PrimaryController.class
 Cliente\CrearPerfilController.class
 Cliente\SocketManager.class
 Cliente\CrearProductoController.class
+Cliente\CocinaController$1$1.class
+Cliente\CocinaController$1.class
+ViewModel\Pedido.class
 ViewModel\Producto.class

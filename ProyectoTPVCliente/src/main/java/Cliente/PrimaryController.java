@@ -16,6 +16,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import Cliente.SocketManager;
+import ViewModel.Perfil;
 
 public class PrimaryController{
 	
@@ -36,7 +37,7 @@ public class PrimaryController{
 	
 	private SocketManager socketManager = TPV.getSocketManager();
 	
-	private String rolManager = TPV.getRolManager();
+	private Perfil perfilActual = TPV.getPerfilActual();
 	
     @FXML
     private void login(){
@@ -57,13 +58,15 @@ public class PrimaryController{
             
             if(mensaje.equals("LOGIN CORRECTO")) {
             	String nuevoRol = respuesta.split(":")[2];
-                TPV.setRolManager(nuevoRol);
-                rolManager = nuevoRol;
-            	if(rolManager.equals("Administrador")) {
+                TPV.setPerfilActual(usuario, contraseña, nuevoRol);
+            	if(perfilActual.getRol().equals("Administrador")) {
             		paneLogin.setVisible(true);
             	}
-            	else {
+            	else if(perfilActual.getRol().equals("Camarero")){
             		CambiarATpv();
+            	}
+            	else if(perfilActual.getRol().equals("Cocinero")){
+            		CambiarACocina();
             	}
             	
             }
@@ -85,6 +88,11 @@ public class PrimaryController{
     @FXML
     public void VisiblePanelAdmin() throws IOException {
     	TPV.setRoot("administracion", 600, 350);
+    }
+    
+    @FXML
+    public void CambiarACocina() throws IOException {
+    	TPV.setRoot("cocina", 840, 600);
     }
     
  
