@@ -132,7 +132,7 @@ public class CocinaController {
 	                    }
 	                });
 	                
-	                	Thread.sleep(7000);
+	                	Thread.sleep(10000);
 	                	
 	            	}
 	            	catch(IOException ioe) {

@@ -99,7 +99,7 @@ public class SecondaryController {
     private Pane modalTotal;
     
     @FXML
-    private TextField inputTotal;
+    private TextField inputTotal, inputCambio, inputImporte;
     
     @FXML
     public void initialize() {       
@@ -580,5 +580,17 @@ public class SecondaryController {
     		break;
     	}
     }
+    
+    @FXML
+    private void PagarEfectivo() {
+    	double importe = Double.parseDouble(inputImporte.getText());
+    	double total = Double.parseDouble(inputTotal.getText());
+    	double cambio = importe - total;
+    	
+    	inputCambio.setText(String.valueOf(cambio));
+    	
+    	
+    }
+    
     
 }
