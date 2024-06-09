@@ -13,10 +13,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.TreeMap;
 
+import DAO.CategoriaDao;
 import DAO.MesaDao;
 import DAO.PedidoDao;
 import DAO.PerfilDao;
 import DAO.ProductoDao;
+import Model.Categoria;
 import Model.Mesa;
 import Model.Pedido;
 import Model.Perfil;
@@ -27,6 +29,7 @@ public class HiloMaster extends Thread {
 	private Socket clientSocket;
 	private PerfilDao perfilDao = new PerfilDao();
 	private ProductoDao productoDao = new ProductoDao();
+	private CategoriaDao categoriaDao = new CategoriaDao();
 	private MesaDao mesaDao = new MesaDao();
 	private PedidoDao pedidoDao = new PedidoDao();
 	public static boolean encendido = true;
@@ -78,6 +81,9 @@ public class HiloMaster extends Thread {
 	                        	break;
 	                        case "MESA":
 	                        	MesaInicio();
+	                        	break;
+	                        case "CATEGORIA":
+	                        	CategoriaInicio();
 	                        	break;
 	                        case "CREAR MESA":
 	                        	CrearMesa(mensaje.split(":")[2]);
@@ -259,6 +265,18 @@ public class HiloMaster extends Thread {
 	
 	//==============TPV=================
 	//==================================
+	
+	public void CategoriaInicio() {
+		try {
+	        List<Categoria> categorias = categoriaDao.ObtenerTodosLasCategorias();
+	        out.println("SERVIDOR:" + categorias.size());
+	        for (Categoria categoria : categorias) {
+	            out.println("SERVIDOR:" + categoria.getAll());
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	}
 	
 	public void RealizarCategoria(String categoria) {
 		try {
